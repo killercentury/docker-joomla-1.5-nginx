@@ -2,6 +2,11 @@
 FROM debian:squeeze
 MAINTAINER Decheng Zhang <killercentury@gmail.com>
 
+# Install essential tools
+RUN \
+  apt-get update && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install wget
+
 RUN \
   wget -O - http://www.dotdeb.org/dotdeb.gpg | apt-key add - && \
   echo "deb http://packages.dotdeb.org squeeze all" > /etc/apt/sources.list.d/dotdeb.list && \
